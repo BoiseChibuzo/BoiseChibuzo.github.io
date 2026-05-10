@@ -1,0 +1,242 @@
+/* =========================================================
+   Chibuzo Ukegbu — personal site
+   Minimalist academic style. Edit colors via CSS variables.
+   ========================================================= */
+
+:root {
+  --max: 760px;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --bg: #ffffff;
+  --accent: #b21e2c;          /* MSOE-leaning red. Change as desired. */
+  --accent-hover: #8a1822;
+  --border: #e5e5e5;
+  --code-bg: #f6f6f6;
+  --serif: Charter, "Iowan Old Style", "Source Serif Pro", "Times New Roman", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e8e8e8;
+    --muted: #b0b0b0;
+    --bg: #121212;
+    --accent: #ff6b6b;
+    --accent-hover: #ff9494;
+    --border: #2a2a2a;
+    --code-bg: #1c1c1c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: #fff; padding: 0.5rem 0.75rem;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; z-index: 100; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--sans);
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--fg);
+  letter-spacing: 0.01em;
+}
+.nav-links {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.95rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+.hero-photo img,
+.photo-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--border);
+}
+.photo-placeholder {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #fff;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.04em;
+}
+.hero-text h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+.hero-text .title-line {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.hero-text p { margin: 0 0 1rem; }
+
+@media (max-width: 600px) {
+  .hero { grid-template-columns: 1fr; gap: 1rem; }
+  .hero-photo img, .photo-placeholder { width: 120px; height: 120px; font-size: 2.2rem; }
+}
+
+/* ---------- Sections ---------- */
+section { margin: 2.75rem 0; }
+section h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--sans);
+  letter-spacing: 0.01em;
+}
+section p { margin: 0 0 0.9rem; }
+
+/* ---------- Lists ---------- */
+ul { padding-left: 1.2rem; }
+.research-list, .course-list, .news-list, .post-list {
+  list-style: none;
+  padding-left: 0;
+}
+.research-list li,
+.course-list li,
+.news-list li,
+.post-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed var(--border);
+}
+.research-list li:last-child,
+.course-list li:last-child,
+.news-list li:last-child,
+.post-list li:last-child { border-bottom: none; }
+
+.news-list .date,
+.post-list .date {
+  display: inline-block;
+  min-width: 7em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+.links.inline {
+  list-style: none;
+  padding: 0; margin: 0.6rem 0 0;
+  display: flex; flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+address {
+  font-style: normal;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 0.4rem 0 0.4rem 0.9rem;
+  margin: 0.5rem 0;
+}
+
+/* ---------- Links ---------- */
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--accent-hover); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 4rem;
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+/* ---------- Article (blog post) ---------- */
+article.post header { margin-bottom: 1.5rem; }
+article.post h1 { font-size: 1.8rem; margin: 0 0 0.3rem; }
+article.post .meta {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+article.post p { margin: 0 0 1rem; }
+article.post code {
+  background: var(--code-bg);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.95em;
+}
+article.post blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem;
+  color: var(--muted);
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
