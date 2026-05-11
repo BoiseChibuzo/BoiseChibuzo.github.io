@@ -1,4 +1,4 @@
-# BoiseChibuzo.github.io
+# Chibuzo-Ukegbu.github.io
 
 Personal academic website for **Chibuzo Ukegbu, Ph.D.**, Assistant Professor in the
 Dian & Diercks School of Advanced Computing, Milwaukee School of Engineering.
@@ -7,7 +7,7 @@ Plain HTML + CSS. No build step, no JavaScript framework. Designed to deploy dir
 to GitHub Pages from the **BoiseChibuzo** GitHub account.
 
 > Future-username note: GitHub user-site URLs follow the username. If you ever rename
-> your account from `BoiseChibuzo`, also rename this repository to `<new-username>.github.io`.
+> your account from `Chibuzo-Ukegbu`, also rename this repository to `<new-username>.github.io`.
 > GitHub auto-redirects the old URL for a while, but the canonical address moves.
 
 ---
